@@ -13,6 +13,13 @@
 	bottom: 0px;
 }
 
+#sidebar{
+	display: none;
+	width: 20%;
+	background-color: #FEC868;
+	color: white;
+}
+
 
 /*top bar*/
 #topbar{
