@@ -1,1 +1,132 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<title>Square Wheels Supervisor Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+<link rel="stylesheet" href="sw_supervisorpage.css">
+<style>
+.w3-sidebar a {font-family: "Roboto", sans-serif}
+body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+</style>
+<body>
+	<div id="background">
+		<img src="test.png" id="sw_picture">
+	</div>
+	<!--top bar-->
+	<div id="topbar">
+		<h2 id="topbar_title">Square Wheels Supervisor Page</h2>
+		<button class="w3-button w3-xlarge" id="sidebar_switch" onclick="open_sidear();">&#9776;</button>
+	</div>
+
+	<div id="mycontainer">
+
+	<!--Side bar content-->
+	<div class="w3-sidebar w3-bar-block w3-animate-left" id="sidebar">
+		<button class="w3-bar-item w3-button" onclick="close_sidebar()"></button>
+		<h3 class="w3-bar-item">Actions</h3>
+		<a href="#" class="w3-bar-item w3-button" onclick="return show_card_page();">Results</a>
+		<a href="#" class="w3-bar-item w3-button" onclick="return show_feedback_page();">Feedbacks</a>
+		<a href="#" class="w3-bar-item w3-button" onclick="return show_progress_page();">Progress</a>
+	</div>
+
+	<div id="another_container">
+
+	<!--Main page(result page)-->
+	<div class="w3-container" id="result_cards">
+		<h2 class="past_result_title">Past Results</h2>
+		<div class="w3-panel w3-card w3-hover-shadow">
+			<p>
+				<a href="game_result.html">Game No.1</a>
+			</p>
+			<p>Date: Oct 2nd, 2021</p>
+		</div>
+		<div class="w3-panel w3-card w3-hover-shadow">
+			<p>Game No.2</p>
+			<p>Date: Oct 2nd, 2021</p>
+		</div>
+		<div class="w3-panel w3-card w3-hover-shadow">
+			<p>Game No.3</p>
+			<p>Date: Oct 2nd, 2021</p>
+		</div>
+	</div>
+
+	<!--List of feedback page-->
+	<div class="w3-container" id="feedbacks">
+		<h2 class="past_result_title">Feedbacks</h2>
+		<ul class="w3-ul w3-hoverable" id="feedback_list">
+			<li>
+				Game No.1 Feedback
+			</li>
+			<li>Game No.2 Feedback</li>
+			<li>Game No.3 Feedback</li>
+		</ul>
+	</div>
+	<!--Game Processes page-->
+	<div class="w3-container" id="processes">
+		<h2 class="past_result_title">Processes</h2>
+		<ul class="w3-ul w3-hoverable" id="process_list">
+			<li>Game No.1 Process</li>
+			<li>Game No.2 Process</li>
+			<li>Game No.3 Process</li>
+		</ul>
+	</div>
+	</div>
+	</div>
+</body>
+</html>
+
+<script type="text/javascript">
+	function hidepage(pageid){
+		document.getElementById(pageid).style.display='none';
+	}
+	function show_card_page(){
+		if(document.getElementById("result_cards").style.display==='none'){
+			document.getElementById("result_cards").style.display = 'inline';
+		}
+		hidepage("feedbacks");
+		hidepage("processes");
+	}
+
+	function show_feedback_page(){
+		document.getElementById("feedbacks").style.display = 'inline';
+		hidepage("result_cards");
+		hidepage("processes");
+	}
+
+	function show_progress_page(){
+		document.getElementById("processes").style.display = 'inline';
+		hidepage("result_cards");
+		hidepage("feedbacks");
+	}
+
+	function open_sidear(){
+		if(document.getElementById("sidebar").style.display !== 'inline'){
+			document.getElementById("sidebar").style.display = 'inline';
+			document.getElementById("topbar").style.marginLeft = "20%";
+			document.getElementById("result_cards").style.marginLeft = "20%";
+			document.getElementById("feedbacks").style.marginLeft = "20%";
+			document.getElementById("processes").style.marginLeft = "20%";
+			// document.getElementById("feedback_list").style.marginLeft = "0%";
+			// document.getElementById("process_list").style.marginLeft = "0%";
+			document.getElementById("another_container").style.marginLeft = "20%";
+		}
+		else{
+			document.getElementById("sidebar").style.display = 'none';
+			document.getElementById("topbar").style.marginLeft = "0%";
+			document.getElementById("result_cards").style.marginLeft = "0%";
+			document.getElementById("feedbacks").style.marginLeft = "0%";
+			document.getElementById("processes").style.marginLeft = "0%";
+			// document.getElementById("feedback_list").style.marginLeft = "0%";
+			// document.getElementById("process_list").style.marginLeft = "0%";
+			document.getElementById("another_container").style.marginLeft = "0%";
+		}
+		
+	}
+
+
+</script>
